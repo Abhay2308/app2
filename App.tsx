@@ -25,10 +25,11 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen selection:bg-brandOrange selection:text-white">
       <AnnouncementBar />
-      <div className="relative mt-[80px] md:mt-[112px]">
+      {/* Adjusted margin to match new AnnouncementBar height (h-8=32px, h-10=40px) */}
+      <div className="relative mt-[32px] md:mt-[40px]">
         <Navbar 
           onProductSelect={(id) => setSelectedProductId(id)} 
-          onLogoClick={handleLogoClick}
+          onLogoClick = {handleLogoClick}
         />
         
         <main>

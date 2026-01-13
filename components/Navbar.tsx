@@ -32,11 +32,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onProductSelect, onLogoClick }) 
   };
 
   const handleLinkClick = (e: React.MouseEvent, href: string) => {
-    // If we're on a detail page, reset to home first
     onLogoClick();
     setIsOpen(false);
-    // Let the default scroll behavior take over after a tiny tick if needed, 
-    // but usually, state updates are fast enough.
   };
 
   const handleSelectProduct = (id: number) => {
@@ -58,7 +55,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onProductSelect, onLogoClick }) 
 
   return (
     <>
-      <nav className="sticky top-20 md:top-28 w-full bg-white/95 backdrop-blur-md z-[90] border-b-2 border-brandOrange py-4 px-6 md:px-12 flex justify-between items-center transition-all">
+      {/* Sticky top adjusted to match slimmer AnnouncementBar (h-8/h-10) */}
+      <nav className="sticky top-8 md:top-10 w-full bg-white/95 backdrop-blur-md z-[90] border-b-2 border-brandOrange py-4 px-6 md:px-12 flex justify-between items-center transition-all">
         <div 
           onClick={handleLogoInternal}
           className="logo-text text-2xl tracking-tighter text-black flex items-center shrink-0 cursor-pointer group"
@@ -146,6 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onProductSelect, onLogoClick }) 
         </div>
       </nav>
 
+      {/* Full screen mobile menu remains unchanged for UX consistency */}
       <div className={`fixed inset-0 bg-white z-[101] transition-all duration-500 ease-in-out lg:hidden ${isOpen ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-full opacity-0 pointer-events-none'}`}>
         <div className="p-8 flex flex-col h-full overflow-y-auto">
           <div className="flex justify-between items-center mb-10">
