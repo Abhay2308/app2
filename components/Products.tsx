@@ -5,42 +5,46 @@ export const PRODUCTS = [
   { 
     id: 1, 
     name: "Peri Peri", 
-    image: "https://images.unsplash.com/photo-1628102422238-d784a601569e?q=80&w=1000&auto=format&fit=crop", 
+    image: "components/peri peri.jpg", 
     tag: "Hot & Spicy",
-    brandColor: "#FF5500", // Orange
+    brandColor: "#FF5500",
     description: "Our signature African bird's eye chili blend that brings the perfect heat to every crunch. Baked to perfection for that iconic Snackburst snap.",
-    calories: "120 kcal",
-    weight: "80g"
+    energy: "40 kcal",
+    weight: "11g",
+    mrp: "20"
   },
   { 
     id: 2, 
     name: "Fresh Pudina", 
-    image: "https://i0.wp.com/aartimadan.com/wp-content/uploads/2020/07/Makhana-4-Flavours.jpg?w=1000&ssl=1", 
+    image: "components/fresh Mint.jpg", 
     tag: "Cooling Vibe",
-    brandColor: "#2D5A27", // Deep Green
+    brandColor: "#2D5A27",
     description: "A refreshing burst of garden-fresh pudina leaves and rock salt. The ultimate cooling snack for any time of day.",
-    calories: "110 kcal",
-    weight: "80g"
+    energy: "40 kcal",
+    weight: "11g",
+    mrp: "20"
   },
   { 
     id: 3, 
-    name: "Himalayan salt and pepper", 
-    image: "https://images.unsplash.com/photo-1599490659223-e1539e7af924?q=80&w=1000&auto=format&fit=crop", 
+    name: "Himalayan Salt & Pepper", 
+    image: "components/himalayan salt and pepper.jpg", 
     tag: "Classic Crunch",
-    brandColor: "#E87A82", // Pinkish Red
+    brandColor: "#E87A82",
     description: "Pure mineral-rich Himalayan pink salt paired with freshly cracked black peppercorns. Minimalist, premium, and perfectly balanced.",
-    calories: "105 kcal",
-    weight: "80g"
+    energy: "40 kcal",
+    weight: "11g",
+    mrp: "20"
   },
   { 
     id: 4, 
-    name: "Achari masti", 
-    image: "https://i0.wp.com/aartimadan.com/wp-content/uploads/2020/07/Makhana-4-Flavours.jpg?w=1000&ssl=1", 
+    name: "Achari Masti", 
+    image: "components/achari masti.jpg", 
     tag: "Desi Twist",
-    brandColor: "#5D2E8C", // Purple
+    brandColor: "#5D2E8C",
     description: "The nostalgic tang of slow-matured pickles and artisanal Indian spices. A bold, traditional flavour with a modern superfood twist.",
-    calories: "125 kcal",
-    weight: "80g"
+    energy: "40 kcal",
+    weight: "11g",
+    mrp: "20"
   },
 ];
 
@@ -84,6 +88,9 @@ export const Products: React.FC<ProductsProps> = ({ onProductSelect }) => {
                   src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://via.placeholder.com/600?text=' + product.name;
+                  }}
                 />
               </div>
               <div className="px-2">
