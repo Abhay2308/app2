@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snackburst | Guilt-Free Snacking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        display: flex;
+        width: max-content;
+        animation: marquee 20s linear infinite;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #FFFFFF;
+        color: #000000;
+        scroll-behavior: smooth;
+      }
+      .font-poppins { font-family: 'Poppins', sans-serif; }
+      
+      /* Standardizing Typography per Global Design Rules */
+      .hero-headline {
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: clamp(48px, 8vw, 56px);
+        line-height: 1.1;
+      }
+      .section-heading {
+        font-family: 'Poppins';
+        font-weight: 600;
+        font-size: clamp(32px, 5vw, 36px);
+      }
+      .body-text {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: clamp(16px, 2vw, 18px);
+        line-height: 1.6;
+      }
+      .button-text {
+        font-family: 'Poppins';
+        font-weight: 500;
+      }
+      .logo-text {
+        font-family: 'Poppins';
+        font-weight: 800;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandOrange: '#FF5500',
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
