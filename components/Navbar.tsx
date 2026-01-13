@@ -144,10 +144,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onProductSelect, onLogoClick }) 
         </div>
       </nav>
 
-      {/* Full screen mobile menu remains unchanged for UX consistency */}
+      {/* Full screen mobile menu - Refined for mobile/tablet */}
       <div className={`fixed inset-0 bg-white z-[101] transition-all duration-500 ease-in-out lg:hidden ${isOpen ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-full opacity-0 pointer-events-none'}`}>
         <div className="p-8 flex flex-col h-full overflow-y-auto">
-          <div className="flex justify-between items-center mb-10">
+          <div className="flex justify-between items-center mb-16">
             <div 
               onClick={(e) => { handleLogoInternal(e); setIsOpen(false); }}
               className="logo-text text-2xl tracking-tighter text-black cursor-pointer"
@@ -156,25 +156,39 @@ export const Navbar: React.FC<NavbarProps> = ({ onProductSelect, onLogoClick }) 
             </div>
             <button 
               onClick={() => setIsOpen(false)}
-              className="p-4 bg-brandOrange text-white rounded-2xl shadow-xl"
+              className="p-3 bg-brandOrange text-white rounded-2xl shadow-xl active:scale-95 transition-all"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           
-          <div className="flex flex-col space-y-6 mt-12">
+          <div className="flex flex-col space-y-2 mt-4">
             {links.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="font-poppins font-black text-4xl uppercase tracking-tighter hover:text-brandOrange transition-colors"
+                className="group flex items-center justify-between py-6 border-b border-gray-100"
               >
-                {link.name}
+                <span className="font-poppins font-extrabold text-xl sm:text-2xl uppercase tracking-[0.1em] group-active:text-brandOrange transition-colors">
+                  {link.name}
+                </span>
+                <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center opacity-0 group-active:opacity-100 transition-opacity">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" className="text-brandOrange"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L204.69,128,138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+                </div>
               </a>
             ))}
+          </div>
+
+          <div className="mt-auto pb-8 pt-12">
+             <p className="text-[10px] font-poppins font-black uppercase tracking-[0.5em] text-gray-300 mb-4">Follow the crunch</p>
+             <div className="flex space-x-6">
+                {['Instagram', 'TikTok'].map(social => (
+                  <span key={social} className="text-xs font-bold uppercase tracking-widest text-black hover:text-brandOrange underline decoration-brandOrange decoration-2 underline-offset-4">{social}</span>
+                ))}
+             </div>
           </div>
         </div>
       </div>
